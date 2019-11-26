@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="sale_order_rental_form_view">
+        <field name="name">sale.order.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </xpath>
+            <xpath expr="//notebook/page/field[@name='order_line']/form/group" position="inside">
+                <group>
+                    <field name="rental_history_id"/>
+                </group>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Tenant Details">
+                        <group>
+                            <group>
+                                <field name='tenant_type'/>
+                                <field name="number_of_tenants"/>
+                            </group>
+                            <group>
+                                <field name="broker_name"/>
+                            </group>
+                        </group>
+                </page>
+                <page string="Owner Details">
+                    <group>
+                        <group>
+                            <field name="owner_id" context="{'search_default_customer':1, 'show_address': 1}" options='{"always_reload": True}'/>
+                            <field name="owner_email"/>
+                            <field name="owner_phone"/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+        </record>
+        
+    <!--    <record id="contract_recurring_invoice_analytic.menu_contract_action" model="ir.ui.menu">
+            <field name="name">Contracts / Agreements</field>
+        </record>   -->
+        
+        
+    </data>
+</odoo>

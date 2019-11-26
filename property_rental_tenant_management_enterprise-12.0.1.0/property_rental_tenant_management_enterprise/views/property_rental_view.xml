@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="property_rental_form">
+            <field name="name">property.rental.form</field>
+            <field name="model">property.rental</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <form string='Property Request form'>
+                    <header>
+                        <button name='action_new' type="object" string='Reset to New' states='cancel'/>
+                        <button name="action_allocated" type="object" string="Confirm" states="new" class="btn-primary"/>
+                        <button name="action_cancel" type="object" string="Cancel" states="allocated, new"/>
+                        <button name="action_done" type="object" string="Done" states="allocated" class="btn-primary"/>
+                            <field name="state" widget="statusbar" statusbar_visible="new,allocated,done"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="product_id"/>
+                                <field name="partner_id"/>
+                                <field name="is_reserved"/>
+                            </group>
+                            <group>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                            </group>
+                            <group>
+                                <field name="quotation_id"/>
+                                <field name="order_line_id"/>
+                            </group>
+                            <group>
+                                <field name="lead_id"/>
+                            </group>
+                            
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="property_rental_search" model="ir.ui.view">
+            <field name="name">property.rental.search</field>
+            <field name="model">property.rental</field>
+            <field name="arch" type="xml">
+                <search string="Search Property Requests">
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <filter name="filter_to_reserved" domain="[('state','=','allocated')]"/>
+                    <filter name="Canceled" domain="[('state','=','cancel')]"/>
+                    <filter name="Done" domain="[('state','=','done')]"/>
+                    <group expand="0" string="Group By">
+                        <filter name="Product" context="{'group_by':'product_id'}"/>
+                        <filter name="Partner" context="{'group_by':'partner_id'}"/>
+                        <filter name="Quotation" context="{'group_by':'quotation_id'}"/>
+                        <filter name="Rental Start Date" context="{'group_by':'start_date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="property_rental_calendar">
+            <field name="name">property.rental.calendar</field>
+            <field name="model">property.rental</field>
+            <field name="arch" type="xml">
+                <calendar string="Property Rental" color="start_date" date_start="start_date">
+                    <field name="product_id"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </calendar>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="property_rental_tree">
+            <field name="name">property_rental List</field>
+            <field name="model">property.rental</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <tree string="Property Request List">
+                    <field name="product_id"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="partner_id"/>
+                    <field name="is_reserved"/>
+                    <field name="quotation_id"/>
+                    <field name="lead_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="property_rental_action" model="ir.actions.act_window">
+            <field name="name">Rental History</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">property.rental</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="view_type">form</field>
+        </record>
+        
+        <menuitem id="rental_history" name="Rental History" parent="sale.sale_menu_root"/><!-- odoo11 -->>
+        <menuitem id="property_rental_history" name="Rental Histories" parent="rental_history" action="property_rental_action"/>
+
+    </data>
+</odoo>

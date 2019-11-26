@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<odoo>
+	<data>
+        <record model="ir.ui.view" id="rental_invoice_form_view">
+            <field name="name">account.invoice.inherit</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="rent_start_date"/>
+                    <field name="rent_end_date"/>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page string="Tenant Details">
+                        <group>
+                            <group>
+                                <field name='tenant_type'/>
+                                <field name="number_of_tenants"/>
+                            </group>
+                            <group>
+                                <field name="product_id"/>
+                                <label for="recurring_interval" string="Recurring Period"/>
+                                <div>
+                                    <field name="recurring_interval" class="oe_inline"/>
+                                    <field name="recurring_rule_type" class="oe_inline"/>
+                                </div>
+                                <field name="broker_name"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Owner Details">
+                        <group>
+                            <group>
+                                <field name="owner_id" context="{'search_default_customer':1, 'show_address': 1}" options='{"always_reload": True}'/>
+                                <field name="owner_email"/>
+                                <field name="owner_phone"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

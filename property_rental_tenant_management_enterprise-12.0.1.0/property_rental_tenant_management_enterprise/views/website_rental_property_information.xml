@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+
+<odoo>
+    <data> 
+    
+        <template id="website_rental_property_info" name="Options" inherit_id='website_sale.product'>
+            <xpath expr="//section[@id='product_detail']/div/div/form/div/a[@id='add_to_cart']" position="after">
+                <br/>
+                <a id="get_info" class="btn btn-primary btn-lg mt8" 
+                                    data-placement="top"
+                                    data-html="true"
+                                    data-toggle="modal"
+                                    data-target="#getinfo"
+                                    data-value="product_id"
+                                    > <i class="fa fa-info-circle"></i> Get Information</a>
+            </xpath>
+             <xpath expr="//t[@t-call='website.layout']" position="after"> 
+                 <div class="modal fade" id="getinfo" role="dialog" aria-hidden="true" >
+                    <div class="modal-dialog">
+                    
+                      <form id="property_getinfo" class="modal-content">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&amp;times;</button>
+                          <div align="center"> 
+                              <strong><h3 class="modal-title" aling="center">Get Information</h3></strong>
+                          </div>
+                          <b><span><t t-esc="product.name"/></span></b>
+                        </div>
+                        
+                        <div class="modal-body">
+                            <input type="hidden" name="product_template" id="product_template"
+                                    t-att-value="product.id" class="form-control"/>
+                            <div class="js_product">
+                              <t t-placeholder="select">
+                                <ul class="list-unstyled">
+                                    <t t-set="inc" t-value="0"/>
+                                    <t t-foreach="product.product_variant_ids" t-as="variant_id"> 
+                                        <t t-foreach="variant_id.attribute_value_ids" t-as="value_id">
+                                          <b><span t-field="value_id.name"/></b>
+                                            <div>
+                                                <table class="table" ><tr>
+                                                    <t t-foreach="variant_id.property_description_ids" t-as="description">
+                                                            <td align="center">
+                                                                <span style="font-size:15pt;" t-field="description.value"/><br/>
+                                                                <span style="font-size:10pt;" t-field="description.name"/>
+                                                            </td>
+                                                    </t></tr>
+                                                    
+                                                </table>
+                                            </div>
+                                            <hr/>
+                                        </t>
+                                        <t t-set="inc" t-value="inc+1"/>
+                                    </t>
+                                </ul>
+                              </t>
+                            </div>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" style="padding: 3">OK</button>
+                        </div>
+                        
+                      </form>
+                    </div>
+                  </div>
+             </xpath>
+        </template>
+        
+    </data>
+</odoo>

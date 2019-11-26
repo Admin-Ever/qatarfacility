@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+
+<odoo>
+    <data> 
+        <template id="website_rental_property_inquiry" name="Options" inherit_id='website_sale.product'>
+            <xpath expr="//section[@id='product_detail']/div/div/form/div/a[@id='add_to_cart']" position="after">
+                <br/>
+                <a id="get_inq" class="btn btn-primary btn-lg mt8" 
+                                    data-placement="top"
+                                    data-html="true"
+                                    data-toggle="modal"
+                                    data-target="#getinquiry"
+                                    > <i class="fa fa-exclamation-circle"></i> Get Inquiry</a>
+            </xpath>
+             <xpath expr="//t[@t-call='website.layout']" position="after"> 
+                 <div class="modal fade" id="getinquiry" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <form id="property_getinquiry" action="/shop_inquiry/property_getinquiry" method="POST" class="modal-content">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&amp;times;</button>
+                          <div align="center"> 
+                              <strong><h3 class="modal-title" aling="center">Get Inquiry</h3></strong>
+                          </div>
+                          <b><span><t t-esc="product.name"/></span></b>
+                        </div>
+                        <div class="modal-body"> 
+                            <p>
+                                Please provide details below questions.
+                            </p>
+                            <hr />
+                            <div id="name" class="form-group">
+                            <t t-esc="user"/>
+                                <label class="control-label" for="name">Name: (*)</label>
+                                <t t-if="user_id">
+                                    <input type="text" name="name" id="name" required="required" class="form-control"  t-att-value="user_id.name" />
+                                </t>
+                                <t t-if="not user_id">
+                                    <input type="text" name="name" id="name" required="required" class="form-control"/>
+                                </t>
+                            </div>
+                            <div id="email" class="form-group">
+                                <label class="control-label" for="email">Email: (*)</label>
+                                <t t-if="user_id">
+                                    <input type="text" name="email" required="required" id="email" class="form-control" t-att-value="user_id.email" />
+                                </t>
+                                <t t-if="not user_id">
+                                    <input type="text" name="email" required="required" id="email" class="form-control" t-att-value="''" />
+                                </t>
+                            </div>
+                            <div id="phone" class="form-group">
+                                <label class="control-label" for="email">Phone: (*)</label>
+                                <t t-if="user_id">
+                                    <t t-if="user_id.partner_id.mobile">
+                                    <input type="text" name="phone" required="required" id="phone" class="form-control" t-att-value="user_id.partner_id.mobile" />
+                                    </t>
+                                    <t t-if="not user_id.partner_id.mobile">
+                                    <input type="text" name="phone" required="required" id="phone" class="form-control"/>
+                                    </t>
+                                </t>
+                                <t t-if="not user_id">
+                                    <input type="text" name="phone" required="required" id="phone" class="form-control" t-att-value="''" />
+                                </t>
+                            </div>
+                            <input type="hidden" name="product_template" id="product_template"
+                                    t-att-value="product.id" class="form-control"/>
+                            <div class="js_product">
+                              <t t-placeholder="select">
+                                <ul class="list-unstyled">
+                                    <t t-set="inc" t-value="0"/>
+                                    <p t-att-class="'hidden' if len(product.product_variant_ids) == 1 else ''"><strong>Select <t t-esc="product.property_type_id.name"/> (*)</strong> </p>                             
+                                    <t t-foreach="product.product_variant_ids" t-as="variant_id"> 
+                                        <input t-att-class="'hidden' if len(product.product_variant_ids) == 1 else ''" required="required" type="radio" class="" t-att-checked="'checked' if not inc else ''" name="product_id" t-att-value="variant_id.id" />
+                                        <t t-foreach="variant_id.attribute_value_ids" t-as="value_id">
+                                          <span t-field="value_id.name"/>
+                                          <input type="hidden" name="value_id" id="value_id"
+                                    t-att-value="value_id.name" class="form-control"/>
+                                        </t><br/>
+                                        <t t-set="inc" t-value="inc+1"/>
+                                    </t>
+                                </ul>
+                              </t>
+                            </div>
+                            <div id="quantity" class="form-group">
+                                <label class="control-label" for="quantity">Quantity:</label>
+                                <input type="text" name="quantity" id="quantity" class="form-control" readonly="True" t-att-value="1"/>
+                            </div>
+                            <div id="broker" class="form-group">
+                                <label class="control-label" for="broker">Broker / Agent:</label>
+                                <input type="text" name="broker" id="broker" class="form-control"/>
+                            </div>
+                            <div id="quantity" class="form-group">
+                                <label class="control-label" for="comment">Your Message: (*)</label>
+                                <textarea class="form-control" required="required" name="comment" style="width: 100%;" rows="4"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Send</button> or
+                            <button type="button" class="btn btn-link" data-dismiss="modal" style="padding: 0">Cancel</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+             </xpath>
+        </template>
+        
+        <template id="inquiry_thanks" name="Success">
+          <t t-call="website.layout">
+              <div id="wrap">
+                  <div class="oe_structure oe_empty">
+                      <div class="container text-success oe_subdescription"> 
+                          <hr />
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="alert alert-success">
+                                   <i class="fa fa-thumbs-o-up fa-2x"></i> Thanks for inquiry, our sales team will get back to you soon.
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </t>
+        </template>
+        
+    </data>
+</odoo>
