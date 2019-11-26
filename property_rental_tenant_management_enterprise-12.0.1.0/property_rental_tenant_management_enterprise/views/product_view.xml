@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+
+<odoo>
+    <data>
+        <record id="property_rental_info_action" model="ir.actions.act_window">
+            <field name="name">Rental</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">property.rental</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('product_id', '=', active_id)]</field>
+        </record>
+        
+        <record model="ir.ui.view" id="property_form_view">
+            <field name="name">product.product.inherit</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <div class="oe_button_box" name="button_box" position="inside">
+                    <button name="%(property_rental_tenant_management_enterprise.property_rental_info_action)d"
+                        type="action"
+                        class="oe_stat_button"
+                        string="Rental History"
+                        icon="fa-home">
+                    </button>
+                </div>
+                <xpath expr="//div[@name='options']" position="before">
+                    <div>
+                        <field name="is_rental_product"/>
+                        <label for="is_rental_product"/>
+                    </div>
+                </xpath>
+                <xpath expr="//notebook/page[@name='sales']" position="after">
+                    <page string="Property Rental History">
+                        <div>
+                            <field name="is_reserved"/>
+                            <label for="is_reserved"/>
+                        </div>
+                        <field name="rental_ids">
+                            <tree string="Rental History" editable="bottom">
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="partner_id"/>
+                                <field name="is_reserved"/>
+                                <field name="quotation_id"/>
+                                <field name="lead_id"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Property Description">
+                        <field name="property_description_ids">
+                            <tree string="Property Description" editable="bottom">
+                                <field name="name"/>
+                                <field name="value"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Owner Details">
+                        <group>
+                            <group>
+                                <field name="owner_id" context="{'search_default_customer':1, 'show_address': 1}" options='{"always_reload": True}'/>
+                                <field name="email"/>
+                                <field name="phone"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</odoo>

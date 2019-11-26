@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+        <record id="view_account_analytic_account_form_inherit_owner_tenant_detail" model="ir.ui.view">
+            <field name="name">analytic.analytic.account.form (sale_order_line)</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='main']" position="after">
+                    <notebook>
+                    <page string="Tenant Details">
+                        <group>
+                            <group>
+                                <field name='tenant_type'/>
+                                <field name="number_of_tenants"/>
+                            </group>
+                            <group>
+                                <field name="product_id"/>
+                                <field name="broker_name"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Owner Details">
+                        <group>
+                            <group>
+                                <field name="owner_id" context="{'search_default_customer':1, 'show_address': 1}" options='{"always_reload": True}'/>
+                                <field name="owner_email"/>
+                                <field name="owner_phone"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                    </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+        
+       
+    </data>
+</openerp>

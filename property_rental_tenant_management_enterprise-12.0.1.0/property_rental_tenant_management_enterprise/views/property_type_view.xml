@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+
+<odoo>
+    <data>
+        <record id="property_type_form" model="ir.ui.view">
+            <field name='name'>property.type.form</field>
+            <field name='model'>property.type</field>
+            <field name='arch' type='xml'>
+                <form string="Property Type">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="code"/>
+                        </group>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Church Sections Tree View-->
+        <record id='property_type_tree' model='ir.ui.view'>
+            <field name='name'>property.type.tree</field>
+            <field name='model'>property.type</field>
+            <field name='arch' type='xml'>
+                <tree string='Property Types'>
+                    <field name='name'/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Church Sections Action-->
+        <record id='property_type_action' model='ir.actions.act_window'>
+            <field name='name'>Property Types</field>
+            <field name='res_model'>property.type</field>
+            <field name='view_type'>form</field>
+            <field name='view_mode'>tree,form</field>
+        </record>
+
+        <menuitem id="property_config_main_menu" name="Property" parent="sale.menu_sale_config"/>
+        <menuitem id="property_type_menu"
+                string="Property Type"
+                parent="property_config_main_menu"
+                action="property_type_action"/>
+
+
+    </data>
+</odoo>

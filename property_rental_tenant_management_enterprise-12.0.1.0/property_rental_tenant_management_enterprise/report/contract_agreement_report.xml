@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="property_quatation_report" inherit_id="contract_recurring_invoice_analytic.report_contract_document">
+        <xpath expr="//div/table[@class='table']" position="after">
+        
+            <h4 class="text-left"><strong>Tenant Details</strong></h4>
+            <table class="table">
+                <tr>
+                    <td><strong>Tenant Type</strong></td>
+                    <td><span t-field="doc.tenant_type"/></td>
+                    <td><strong>Request For</strong></td>
+                    <td><span t-field="doc.product_id"/></td>
+                </tr>
+                <tr>
+                    <td><strong>Number of Tenants</strong></td>
+                    <td><span t-field="doc.number_of_tenants"/></td>
+                    <td><strong>Broker / Agent</strong></td>
+                    <td><span t-field="doc.broker_name"/></td>
+                </tr>
+            </table>
+            
+            <h4 class="text-left"><strong>Owner Details</strong></h4>
+            <table class="table">
+                <tr>
+                    <td><strong>Owner Name</strong></td>
+                    <td><span t-field="doc.owner_id.name"/></td>
+                    <td><strong>Reference</strong></td>
+                    <td><span t-field="doc.owner_email"/></td>
+                </tr>
+                <tr>
+                    <td><strong>Recurring Period</strong></td>
+                    <td><span t-field="doc.owner_phone"/></td>
+                    <td></td><td></td>
+                </tr>
+            </table>
+        </xpath>
+    </template>
+</odoo>

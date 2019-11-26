@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<odoo>
+    <data> 
+    
+        <template id="property_rental_google_map" inherit_id="website_sale.product_quantity" customize_show="True" name="Show Attachments">
+            <xpath expr="//div/p[@t-field='product.description_sale']" position="before">
+                <address itemscope="itemscope" itemtype="http://schema.org/Organization">
+                    <div t-field="product.partner_id" t-options='{
+                            "widget": "contact",
+                            "fields": ["name", "address", "phone", "mobile", "fax", "email"]}'/>
+                    <t t-if="not product.google_map_img()">
+                        <span class="fa fa-map-marker fa-fw mt16"/> <a t-att-href="product.google_map_link()" target="_BLANK"> Google Maps</a>
+                    </t>
+                </address>
+                <br/>
+                <t t-if="product.google_map_img()">
+                    <a t-att-href="product.google_map_link()" target="_BLANK">
+                       <img class="thumbnail img-responsive" t-att-src="product.google_map_img()" />
+                    </a>
+                </t>
+            </xpath>
+        </template>
+    
+    </data>
+</odoo>

@@ -1,0 +1,224 @@
+<section class="oe_container">
+   <div class="oe_row oe_spaced">
+           <h2 class="oe_slogan" style="color:olive;"><b>Website Property Lease/Tenant Management</h2>
+       <p style="color:olive;" class="oe_mt32">
+This module allow visitor of your website and your customers to get information about property (Office, home, warehouse, etc) online from Odoo website shop and allow them send you inquiry of property they would like to lease.
+<br/><br/>
+<h4 style="color:olive;"><b>ONLY FOR ENTERPRISE VERSION OF ODOO: FOR COMMUNITY VERSION YOU CAN SEE https://www.odoo.com/apps/modules/10.0/property_rental_tenant_management/ </b><br/> </h4></p>
+<h4 style="color:olive;"><b>Workflow of module will be:</b><br/> </h4></p>
+<p style="color:olive;">
+- Visitor/Customer visit your website and search for product/property which you want to lease for certain period.<br/>
+- Visitor/Customer can view detail of property on product shop page and also use view details button which will give detail information about property/home/office.<br/>
+- Visitor/Customer can send online request which will create Lead in backend.
+- Sales team can checking all leads during day and reply to visitor/customer about details they need and communicate with them using open chatter at bottom of lead/opportunity form.<br/>
+- Sales team can fill some more information on lead form like tenant and owner details.
+- Sales team can arrange meeting with visitor/customer and show site location physically and give more information.<br/>
+- Then Sales team can submit quote to customer. (On quote form sales team has to fill d-etails of tenant and owner manually again).<br/>
+- On confirmation of quote it will also book that product/property for that period selected on quote as start date and date date so this property will not be available for future visitors/customers untill it will unserved in future after completing/closing agreement. (Add to cart button will be hide in webshop.). System will also consider cancel sales order flow in that case it will make available that property and unreserved it for new customers.<br/>
+- Miscellaneous: You can create property types, set property location, customer/visitor can view property location in google map in website, visitor/customer can download documents for property in website.
+- System keep record of rental history of every property.
+- System can allow you to print agreement with tenant and owner details.
+</p>
+        <p>
+       <h4 style="color:green;">Created Menus :</h4><ul>
+                    <li  style="color:green;">Rental History<ul>
+                        <li  style="color:green;">Rental Histories</li>
+                    </ul></li>
+                    <li  style="color:green;">Property<ul>
+                        <li  style="color:green;">Property Types</li>
+                    </ul></li>
+                </ul>
+       </p>
+   </div>
+</section>
+<section class="oe_container">
+   <div class="oe_row oe_spaced">
+       <h3 class="oe_slogan" style="color:olive;"><b>Login With Sales Manger - Create Product Attribute</b></h3>
+<p style="color:olive;">Add the Property/Product Attributes by Sales Manager.</p>
+       <div class="oe_demo oe_screenshot">
+           <img src="1_attributes.png"><br/><br/>
+           <p style="color:olive;">Add the Property/Product Attribute Values by Sales Manager.</p><br/>
+           <img src="2_attribute_values.png">
+       </div>
+   </div>
+</section>
+<section class="oe_container">
+   <div class="oe_row oe_spaced">
+       <h3 class="oe_slogan" style="color:olive;"><b>Configure the Variants on Property/Product</b></h3>
+       <div class="oe_demo oe_screenshot">
+            <p style="color:olive;">Select the Property Attributes and it's Variants.</p>
+           <img src="3_property_add_variants.png">
+       </div>
+   </div>
+</section>
+<section class="oe_container">
+   <div class="oe_row oe_spaced">
+       <h3 class="oe_slogan" style="color:olive;"><b>Add Property Details</b></h3>
+       <div class="oe_demo oe_screenshot">
+            <p style="color:olive;">Add the Property Location or Address and it's Property Type for easily founded by customer/visitor.</p>
+           <img src="4_property_details_location.png">
+       </div>
+   </div>
+</section>
+<section class="oe_container">
+   <div class="oe_row oe_spaced">
+       <h3 class="oe_slogan" style="color:olive;"><b>Add Attachements which will be Downloaded by customer/visitor from Website.</b></h3>
+       <div class="oe_demo oe_screenshot">
+            <p style="color:olive;">It can be includes Property T & C. Files, Other documents which can allow customer to get more information of property, and / or Images, etc....</p>
+           <img src="5__property_attachements.png">
+       </div>
+   </div>
+</section>
+<section class="oe_container">
+   <div class="oe_row oe_spaced">
+       <h3 class="oe_slogan" style="color:olive;"><b>Add Details Description of Property which will be Visible on View Details button on Website.</b></h3>
+       <div class="oe_demo oe_screenshot">
+            <p style="color:olive;">Property Description: It is dynamic list so you can have your own description list by different kind of features/facilities you are providing on that property.</p>
+           <img src="5_property_description_is_rental.png">
+       </div>
+   </div>
+</section>
+<section class="oe_container">
+   <div class="oe_row oe_spaced">
+       <h3 class="oe_slogan" style="color:olive;"><b>Add Owner Details on Product/Property</b></h3>
+       <div class="oe_demo oe_screenshot">
+           <img src="6_property_owner_detail.png">
+       </div>
+   </div>
+</section>
+<section class="oe_container">
+   <div class="oe_row oe_spaced">
+       <h3 class="oe_slogan" style="color:olive;"><b>Get Inquiry and Get Details/Information of the Property using these two buttons</b></h3>
+       <div class="oe_demo oe_screenshot">
+           <img src="7_publick_user_get_inq_info.png">
+       </div>
+   </div>
+</section>
+<section class="oe_container">
+   <div class="oe_row oe_spaced">
+       <h3 class="oe_slogan" style="color:olive;"><b>Location on Google Map and Attachments/Documents for the Detail about Property.</b></h3>
+       <div class="oe_demo oe_screenshot">
+           <img src="7_attachment_download.png">
+       </div>
+   </div>
+</section>
+<section class="oe_container">
+   <div class="oe_row oe_spaced">
+       <h3 class="oe_slogan" style="color:olive;"><b>Get Details/Information by the customer/visitor for Property from the Pop up Window.</b></h3>
+       <div class="oe_demo oe_screenshot">
+           <img src="10 get_information.png">
+       </div>
+   </div>
+</section>
+<section class="oe_container">
+   <div class="oe_row oe_spaced">
+       <h3 class="oe_slogan" style="color:olive;"><b>Get Inquiry by the customer/vistor for the Selected Property on the Pop up Window. This will create lead in Backend on submittion.</b></h3>
+       <div class="oe_demo oe_screenshot">
+           <img src="9_public_user_get_inq_1.png">
+           <img src="9_public_user_get_inq_2.png">
+       </div>
+   </div>
+</section>
+<section class="oe_container">
+   <div class="oe_row oe_spaced">
+       <h3 class="oe_slogan" style="color:olive;"><b>Login with Sales Manager</b></h3>
+       <div class="oe_demo oe_screenshot">
+            <p style="color:olive;">Inquiry will be created as lead which will be done by the sales user and then on processing it will be Convert to Opportunity by click on the "Convert to opporunity"</b>Button.</p>
+           <img src="10_lead_button.png">
+       </div>
+   </div>
+</section>
+<section class="oe_container">
+   <div class="oe_row oe_spaced">
+       <h3 class="oe_slogan" style="color:olive;"><b>Login with Sales Person</b></h3>
+       <div class="oe_demo oe_screenshot">
+            <p style="color:olive;">After the get inquiry request from user sales person will contact customer/visitor and get more information and arrange meeting for site location visit etc..
+           <img src="11_lead_opp_tenant_details_herry.png">
+           <img src="11_lead_oppo_owner_detail_herry.png">
+       </div>
+   </div>
+</section>
+<section class="oe_container">
+   <div class="oe_row oe_spaced">
+       <h3 class="oe_slogan" style="color:olive;"><b>Create Quotation using click on the "New Quotation" button</b></h3>
+       <div class="oe_demo oe_screenshot">
+           <img src="13_create_quoat.png">
+       </div>
+   </div>
+</section>
+<section class="oe_container">
+   <div class="oe_row oe_spaced">
+       <h3 class="oe_slogan" style="color:olive;"><b>Add Tenant Details manually on quatation.</b></h3>
+       <div class="oe_demo oe_screenshot">
+           <img src="14_quot_tenant_details.png">
+       </div>
+   </div>
+</section>
+<section class="oe_container">
+   <div class="oe_row oe_spaced">
+       <h3 class="oe_slogan" style="color:olive;"><b>Set Owner Details on Quatation.</b></h3>
+       <div class="oe_demo oe_screenshot">
+           <img src="15_owner_detais.png">
+       </div>
+   </div>
+</section>
+<section class="oe_container">
+   <div class="oe_row oe_spaced">
+       <h3 class="oe_slogan" style="color:olive;"><b>System will Create Rental History on Confirm of Quote</b></h3>
+       <div class="oe_demo oe_screenshot">
+           <img src="16_property_rental_history.png">
+       </div>
+   </div>
+</section>
+<section class="oe_container">
+   <div class="oe_row oe_spaced">
+       <h3 class="oe_slogan" style="color:olive;"><b>Property Rental History Menu</b></h3>
+       <div class="oe_demo oe_screenshot">
+            <p style="color:olive;">Show the Property Rental History from <b>"Rental Histories"</b> menu.
+           <img src="17_rental_history.png">
+       </div>
+   </div>
+</section>
+<section class="oe_container">
+   <div class="oe_row oe_spaced">
+       <h3 class="oe_slogan" style="color:olive;"><b>Inaccessible Property after Reserved by Sales Order with Tanent.</b></h3>
+       <div class="oe_demo oe_screenshot">
+            <p style="color:olive;">User will not able to add to cart when property reserved on day.
+           <img src="18_reserved.png">
+       </div>
+   </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced"><hr><font color="green"  >
+        <h2 class="oe_slogan"><b >Similar Apps</b></h2>
+        <div class="col-md-3">
+            <p>Sale of Real Estate Property Management</p>
+            <a href="https://www.odoo.com/apps/modules/10.0/real_estate_property_app/" target='new'>
+                <img class="img-border img-responsive thumbnail" src="account_general_ledger_excel.png">
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container" >
+   <div class="oe_row oe_spaced">
+       <div class="oe_span6">
+           <div class="oe_picture" style="margin: 25px 10%;">
+               <a href="http://www.probuse.com/">
+                   <img src="logo.png">
+               </a>
+           </div>
+       </div>
+       <div class="oe_span6">
+           <p class="oe_mt32">
+               If you need any help or want more additional features,<br/> you may contact us through:<br/>
+               Email: <a href="contact@probuse.com">contact@probuse.com</a> <br/>
+               Website: <a href="http://www.probuse.com/" target='new'><u>www.probuse.com</u></a> <br/>
+               Skype: mustufa_probuse<br/>
+           </p>
+       </div>
+   </div>
+</section>
+
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+
+<odoo>
+    <data>
+        
+        <record model="ir.ui.view" id="property_template_form_view">
+            <field name="name">product.template.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Property Details">
+                        <group>
+                            <group>
+                                <field name="partner_id"/>
+                                <field name="property_type_id" widget="selection"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//group[@name='email_template_and_project']" position="before">
+                    <group string="Website Product Attachments" groups="sales_team.group_sale_salesman">
+                        <field name="website_product_attachment" nolabel='1' groups="sales_team.group_sale_salesman"/>
+                    </group>
+                 </xpath>
+            </field>
+        </record>
+        
+    </data>
+</odoo>

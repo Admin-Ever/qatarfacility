@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<odoo>
+    <data> 
+        <template id="property_rental_attachment" inherit_id="website_sale.product_quantity" customize_show="True" name="Show Attachments">
+            <xpath expr="//div/p[@t-field='product.description_sale']" position="after">
+                <t t-if="len(product.product_variant_ids)">
+                    <h3>Property Documents</h3>
+                    <t t-foreach="product.product_variant_ids[0].website_product_attachment" t-as="attachment">
+                        <div>
+                            <a t-att-href="'/web/content/'+str(attachment.id)+'?download=true'" target="_BLANK">
+                                <i class="fa fa-download" aria-hidden="true"></i>
+                                <t t-esc="attachment.name"/>
+                            </a>
+                        </div>
+                        <newline/>
+                    </t>
+                </t>
+            </xpath>
+        </template>
+        
+    </data>
+</odoo>
